@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nice_lol_civil_war/presentation/login/login_view.dart';
+import 'package:nice_lol_civil_war/core/router/route_config.dart';
 
 void main() {
   runApp(const NiceLolCivilWar());
@@ -12,11 +12,11 @@ class NiceLolCivilWar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         colorSchemeSeed: Colors.black,
       ),
-      home: LoginView(),
+      routerConfig: RouteConfig(context: context),
     );
   }
 }
