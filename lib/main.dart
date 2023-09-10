@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nice_lol_civil_war/presentation/login/login_view.dart';
 
 void main() {
   runApp(const NiceLolCivilWar());
@@ -15,6 +16,7 @@ class NiceLolCivilWar extends StatelessWidget {
       theme: ThemeData(
         colorSchemeSeed: Colors.black,
       ),
+      home: LoginView(),
     );
   }
 }

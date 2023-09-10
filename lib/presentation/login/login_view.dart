@@ -7,6 +7,14 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Column(
+        children: [
+          Text('login'),
+          TextFormField(),
+          ElevatedButton(onPressed: () {}, child: Text('login')),
+        ],
+      ),
+    );
   }
 }
