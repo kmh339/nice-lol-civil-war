@@ -16,37 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthenticationEvent {
+  AuthStatus get status => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() changed,
+    required TResult Function(AuthStatus status) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? changed,
+    TResult? Function(AuthStatus status)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? changed,
+    TResult Function(AuthStatus status)? changed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Changed value) changed,
+    required TResult Function(_Changed value) changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Changed value)? changed,
+    TResult? Function(_Changed value)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Changed value)? changed,
+    TResult Function(_Changed value)? changed,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthenticationEventCopyWith<AuthenticationEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -55,6 +60,8 @@ abstract class $AuthenticationEventCopyWith<$Res> {
   factory $AuthenticationEventCopyWith(
           AuthenticationEvent value, $Res Function(AuthenticationEvent) then) =
       _$AuthenticationEventCopyWithImpl<$Res, AuthenticationEvent>;
+  @useResult
+  $Res call({AuthStatus status});
 }
 
 /// @nodoc
@@ -66,65 +73,107 @@ class _$AuthenticationEventCopyWithImpl<$Res, $Val extends AuthenticationEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AuthStatus,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ChangedCopyWith<$Res> {
-  factory _$$ChangedCopyWith(_$Changed value, $Res Function(_$Changed) then) =
-      __$$ChangedCopyWithImpl<$Res>;
+abstract class _$$_ChangedCopyWith<$Res>
+    implements $AuthenticationEventCopyWith<$Res> {
+  factory _$$_ChangedCopyWith(
+          _$_Changed value, $Res Function(_$_Changed) then) =
+      __$$_ChangedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AuthStatus status});
 }
 
 /// @nodoc
-class __$$ChangedCopyWithImpl<$Res>
-    extends _$AuthenticationEventCopyWithImpl<$Res, _$Changed>
-    implements _$$ChangedCopyWith<$Res> {
-  __$$ChangedCopyWithImpl(_$Changed _value, $Res Function(_$Changed) _then)
+class __$$_ChangedCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res, _$_Changed>
+    implements _$$_ChangedCopyWith<$Res> {
+  __$$_ChangedCopyWithImpl(_$_Changed _value, $Res Function(_$_Changed) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? status = null,
+  }) {
+    return _then(_$_Changed(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AuthStatus,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$Changed implements Changed {
-  const _$Changed();
+class _$_Changed implements _Changed {
+  const _$_Changed({required this.status});
+
+  @override
+  final AuthStatus status;
 
   @override
   String toString() {
-    return 'AuthenticationEvent.changed()';
+    return 'AuthenticationEvent.changed(status: $status)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Changed);
+        (other.runtimeType == runtimeType &&
+            other is _$_Changed &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, status);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangedCopyWith<_$_Changed> get copyWith =>
+      __$$_ChangedCopyWithImpl<_$_Changed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() changed,
+    required TResult Function(AuthStatus status) changed,
   }) {
-    return changed();
+    return changed(status);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? changed,
+    TResult? Function(AuthStatus status)? changed,
   }) {
-    return changed?.call();
+    return changed?.call(status);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? changed,
+    TResult Function(AuthStatus status)? changed,
     required TResult orElse(),
   }) {
     if (changed != null) {
-      return changed();
+      return changed(status);
     }
     return orElse();
   }
@@ -132,7 +181,7 @@ class _$Changed implements Changed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Changed value) changed,
+    required TResult Function(_Changed value) changed,
   }) {
     return changed(this);
   }
@@ -140,7 +189,7 @@ class _$Changed implements Changed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Changed value)? changed,
+    TResult? Function(_Changed value)? changed,
   }) {
     return changed?.call(this);
   }
@@ -148,7 +197,7 @@ class _$Changed implements Changed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Changed value)? changed,
+    TResult Function(_Changed value)? changed,
     required TResult orElse(),
   }) {
     if (changed != null) {
@@ -158,8 +207,15 @@ class _$Changed implements Changed {
   }
 }
 
-abstract class Changed implements AuthenticationEvent {
-  const factory Changed() = _$Changed;
+abstract class _Changed implements AuthenticationEvent {
+  const factory _Changed({required final AuthStatus status}) = _$_Changed;
+
+  @override
+  AuthStatus get status;
+  @override
+  @JsonKey(ignore: true)
+  _$$_ChangedCopyWith<_$_Changed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
