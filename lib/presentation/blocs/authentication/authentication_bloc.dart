@@ -26,7 +26,8 @@ class AuthenticationBloc
               emit(AuthenticationState.failure(message: 'message')),
             AuthStatus.unauthenticated =>
               emit(AuthenticationState.failure(message: 'message')),
-            AuthStatus.authenticated => emit(AuthenticationState.success()),
+            AuthStatus.authenticated =>
+              emit(const AuthenticationState.success()),
           },
       },
     );
